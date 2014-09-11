@@ -1,1 +1,16 @@
 <h1>Welcome to Simple Wellness</h1>
+
+<section class="form">
+  <%= form_tag("/fetch", method: "get") do %>
+    <%= select_tag(:subreddit, options_for_select([['Show me a weightloss pic', 'loseit'], ['Show Me A Progress Pic', 'progresspics']], params[:subreddit])) %>
+    <%= submit_tag("Fetch!") %>
+  <% end %>
+</section>
+
+<section class="container">
+  <section class="image_holder">
+    <% if @image != '' %>
+      <img src="<%= @image %>">
+    <% end %>
+  </section>
+</section>
